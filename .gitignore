@@ -1,0 +1,13 @@
+build/
+*.o
+*.a
+*.so
+*.spv
+node_modules/
+__pycache__/
+.opencode-data/
+project-data/
+.opencode/skills
+.opencode/command
+ProjectTXT
+ProjectTXT.txt
