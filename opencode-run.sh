@@ -54,6 +54,11 @@ fi
 export XDG_DATA_HOME="$DATA"
 export OPENCODE_DISABLE_AUTOCOMPACT=1
 
+# Token-price note at the start of every chat (peak vs off-peak DeepSeek hours).
+if [ -f "$BOX_DIR/tokenprice.sh" ]; then
+  bash "$BOX_DIR/tokenprice.sh" --notify 2>/dev/null || true
+fi
+
 # Acquire this project's single-instance lock (replacing the previous holder,
 # which only happens legitimately on the auto-handoff continuation restart).
 echo $$ > "$LOCKFILE"
