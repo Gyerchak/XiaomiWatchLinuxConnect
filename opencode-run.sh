@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Open "XiamomiWatchLinuxConnect" with its own dedicated sessions in a NEW TERMINAL WINDOW.
+# Open "XiaomiWatchLinuxConnect" with its own dedicated sessions in a NEW TERMINAL WINDOW.
 # Directory-agnostic: paths resolved from this file's location.
 
 set -euo pipefail
@@ -12,14 +12,14 @@ while [ "$_d" != "/" ]; do
   _d="$(dirname "$_d")"
 done
 
-PROJ="XiamomiWatchLinuxConnect"
+PROJ="XiaomiWatchLinuxConnect"
 PROJ_DATA="$BOX_DIR/project-data"
-DATA="$PROJ_DATA/XiamomiWatchLinuxConnect/.opencode-data"
-SESSIONS_DIR="$PROJ_DATA/XiamomiWatchLinuxConnect/sessions"
-HANDOFFS_DIR="$PROJ_DATA/XiamomiWatchLinuxConnect/handoffs"
-LOCKFILE="/tmp/opencode-XiamomiWatchLinuxConnect.lock"
+DATA="$PROJ_DATA/XiaomiWatchLinuxConnect/.opencode-data"
+SESSIONS_DIR="$PROJ_DATA/XiaomiWatchLinuxConnect/sessions"
+HANDOFFS_DIR="$PROJ_DATA/XiaomiWatchLinuxConnect/handoffs"
+LOCKFILE="/tmp/opencode-XiaomiWatchLinuxConnect.lock"
 
-export OPENCODE_CONFIG="$PROJ_DATA/XiamomiWatchLinuxConnect/opencode.json"
+export OPENCODE_CONFIG="$PROJ_DATA/XiaomiWatchLinuxConnect/opencode.json"
 
 if [ "${1:-launch}" = "launch" ]; then
   # Single-instance guard: refuse a second terminal for this project unless
@@ -27,7 +27,7 @@ if [ "${1:-launch}" = "launch" ]; then
   if [ -f "$LOCKFILE" ]; then
     LOCK_PID=
     if [ -n "$LOCK_PID" ] && kill -0 "$LOCK_PID" 2>/dev/null && [ "${2:-}" != "continue" ]; then
-      echo "XiamomiWatchLinuxConnect is already running (PID $LOCK_PID)."
+      echo "XiaomiWatchLinuxConnect is already running (PID $LOCK_PID)."
       echo "Only one agent per project -- use the existing terminal, or close it first."
       exit 0
     fi
@@ -90,7 +90,7 @@ else
 fi
 echo $! > "$DATA/opencode.pid"
 
-nohup bash "$BOX_DIR/auto-handoff.sh" --watch --name "XiamomiWatchLinuxConnect" --data-dir "$DATA" --handoffs "$HANDOFFS_DIR" --pidfile "$DATA/opencode.pid" --workdir "$CONTAINER_DIR/$PROJ" --restart-cmd "$0 launch continue" >/dev/null 2>&1 &
+nohup bash "$BOX_DIR/auto-handoff.sh" --watch --name "XiaomiWatchLinuxConnect" --data-dir "$DATA" --handoffs "$HANDOFFS_DIR" --pidfile "$DATA/opencode.pid" --workdir "$CONTAINER_DIR/$PROJ" --restart-cmd "$0 launch continue" >/dev/null 2>&1 &
 
 # Nonstop addon: auto-resume after an LLM timeout (sibling project, if present).
 if [ -f "$CONTAINER_DIR/nonstop/src/nonstop-watch.sh" ]; then
