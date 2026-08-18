@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=XiaomiWatchLinuxConnect
+GenericName=OpenCodeBox project terminal
+Comment=Open the XiaomiWatchLinuxConnect project terminal
+Exec=/run/media/hubertg/SONIC/OpenCodeBox/git-projects/XiaomiWatchLinuxConnect/box/scripts/XiaomiWatchLinuxConnect.sh launch
+TryExec=/run/media/hubertg/SONIC/OpenCodeBox/git-projects/XiaomiWatchLinuxConnect/box/scripts/XiaomiWatchLinuxConnect.sh
+Icon=utilities-terminal
+Terminal=false
+Categories=Development;
